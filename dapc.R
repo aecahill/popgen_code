@@ -5,11 +5,11 @@
 library(ape)
 library(adegenet)
 
-#species_name<-read.FASTA("C:/Users/Abigail/Desktop/file.fasta") #read in fasta file
-#pops<-read.table("C:/Users/Abigail/Desktop/file.txt") #read in list of sample populations
+species_name<-read.FASTA("C:/Users/Abigail/Desktop/mtru.fas") #read in fasta file
+pops<-read.table("C:/Users/Abigail/Desktop/mtrupops.txt") #read in list of sample populations
 
 run_dapc<-function(species_name,pops){
-  library(adegenet) #load adegenet
+  #library(adegenet) #load adegenet
   species<-DNAbin2genind(species_name,polyThres=1/1000) #convert fasta to genind
   species_clust<-find.clusters(species) #find clusters in data
   scatter.dapc(dapc(species,pop=species_clust$grp)) #scatter.dapc of data with found clusters
